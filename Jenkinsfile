@@ -16,7 +16,7 @@ pipeline{
         
         stage('Build in Dev Env')
         {
-            when { environment name: 'params.ENV', value: 'Dev' }
+            when { expression { params.ENV == 'Dev' } }
             steps{
                   git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
                   sh 'mvn pmd:pmd'
@@ -26,7 +26,7 @@ pipeline{
         
          stage('Build in Test Env')
         {
-            when { environment name: 'params.ENV', value: 'QA' }
+            when { expression { params.ENV == 'QA' } }
             steps{
                   git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
                   sh 'mvn Test'
