@@ -18,7 +18,7 @@ pipeline{
         {
             when { expression { params.ENV == 'Dev' } }
             steps{
-                  git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+                  git 'https://github.com/ashishdubey195/DevOpsCodeDemo.git'
                   sh 'mvn pmd:pmd'
                   sh 'mvn package'
             }
@@ -28,7 +28,7 @@ pipeline{
         {
             when { expression { params.ENV == 'QA' } }
             steps{
-                  git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+                  git 'https://github.com/ashishdubey195/DevOpsCodeDemo.git'
                   sh 'mvn test'
                   sh 'mvn package'
             }
