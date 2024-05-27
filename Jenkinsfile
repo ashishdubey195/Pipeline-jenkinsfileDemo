@@ -8,7 +8,7 @@ pipeline{
    
    parameters{
        
-       choice choices: ['"", Dev, QA'], name: 'ENV'
+       choice(name: "ENV",choices: ["","Dev","QA"])
        
    }
     
