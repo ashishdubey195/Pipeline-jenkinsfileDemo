@@ -29,7 +29,7 @@ pipeline{
             when { expression { params.ENV == 'QA' } }
             steps{
                   git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
-                  sh 'mvn Test'
+                  sh 'mvn test'
                   sh 'mvn package'
             }
         }
