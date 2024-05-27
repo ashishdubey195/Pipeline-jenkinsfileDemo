@@ -8,7 +8,7 @@ pipeline{
    
    parameters{
        
-       choice(name: "ENV",choices: ["","Dev","QA"])
+       choice choices: ['"", Dev, QA'], name: 'ENV'
        
    }
     
@@ -16,7 +16,7 @@ pipeline{
         
         stage('Build in Dev Env')
         {
-            when { expression {params.ENV == "Dev"} }
+            when { environment name: 'params.ENV', value: 'Dev' }
             steps{
                   git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
                   sh 'mvn pmd:pmd'
@@ -26,7 +26,7 @@ pipeline{
         
          stage('Build in Test Env')
         {
-            when { expression {params.ENV == "QA"} }
+            when { environment name: 'params.ENV', value: 'QA' }
             steps{
                   git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
                   sh 'mvn Test'
